@@ -13,8 +13,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { purple, red } from "@mui/material/colors";
-import metamask from "../../images/metamask.png";
-import coinbase from "../../images/coinbase.png";
+import metamask from "../../../component/images/metamask.png";
+import coinbase from "../../../component/images/coinbase.png";
 const theme = createTheme({
   palette: {
     primary: {
