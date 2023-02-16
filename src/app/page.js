@@ -1,91 +1,87 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+"use client";
+import Link from "next/link";
+import styled from "@emotion/styled";
+import { Box } from "@mui/system";
+import { Roboto } from "@next/font/google";
+import bg from "../component/images/bg.png";
+import Login from "../component/auth/signin";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+const Herosec = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  background-color: #212121;
+  position: relative;
+  p {
+    font-size: 1.1em;
+    padding: 14px 0px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
+const Imgsc = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+const Heading = styled.div`
+  h1 {
+    text-transform: uppercase;
+    line-height: 130%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    font-size: 3.7em;
+    span {
+      font-weight: 800;
+    }
+  }
+`;
+const H1 = styled.h1`
+  padding-left: 50px;
+`;
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Herosec>
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: "2",
+          }}
         >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
+          <Heading>
+            <h1>
+              Instanly <span>Launch</span>
+            </h1>
+            <H1>
+              And <span>Manage</span> your
+            </H1>
+            <h1>
+              Next <span>NFT Project</span>
+            </h1>
+          </Heading>
+          <p>
+            Xtraverse streamlines the production of NFT projects by <br />{" "}
+            equipping your agency with what it needs to scale without limits
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <Login />
+        </Box>
+        <Imgsc>
+          <Image src={bg} alt="bg image" />
+        </Imgsc>
+      </Herosec>
+    </>
+  );
 }
