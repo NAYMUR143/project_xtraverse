@@ -58,9 +58,12 @@ export default function layout({ children }) {
     <Main>
       <Templatepage>
         <Header>
-          <div className="logo">
-            <Image src={logo} alt="logo" />
-          </div>
+          <Link href="/">
+            <div className="logo">
+              <Image src={logo} alt="logo" />
+            </div>
+          </Link>
+
           <div className="btnsc">
             <Link href="/template/marketplace">Marketplace</Link>
             <Link href="/template/waitlist">Waitlist</Link>

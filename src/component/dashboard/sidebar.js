@@ -21,6 +21,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { GoSearch } from "react-icons/go";
 import { BsGrid1X2 } from "react-icons/bs";
+import Link from "next/link";
 const drawerWidth = 240;
 const Ul = styled.ul`
   list-style: none;
@@ -37,12 +38,13 @@ const Ul = styled.ul`
     border-radius: 5px;
     color: #000;
     font-weight: 500;
+
     svg {
       font-size: 1.4em;
     }
     &:hover {
-      background-color: #000;
-      color: #fff;
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #000;
     }
   }
 `;
@@ -90,7 +92,9 @@ function Sidebar(props) {
               margin: "20px 0px",
             }}
           >
-            <Image src={logo} alt="" className="sideBarlogo" />
+            <Link href="/">
+              <Image src={logo} alt="" className="sideBarlogo" />
+            </Link>
           </Box>
         </li>
 
