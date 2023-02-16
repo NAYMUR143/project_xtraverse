@@ -9,6 +9,7 @@ const Main = styled.main`
   background: #1f1f1f;
   padding: 30px;
   height: 100%;
+  color: #fff;
 `;
 const Header = styled.header`
   width: 100%;
