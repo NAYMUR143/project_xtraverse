@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 const drawerWidth = 240;
 
 const Ul = styled.ul`
-  width: 450px;
+  width: 540px;
   display: flex;
   list-style: none;
   justify-content: space-between;
@@ -61,16 +61,22 @@ export default function layout({ children }) {
       id: "4",
     },
     {
+      label: " Connection",
+      path: "/dashboard/createproject/connection",
+      targetSegment: "connection",
+      id: "5",
+    },
+    {
       label: " Domain",
       path: "/dashboard/createproject/domain",
       targetSegment: "domain",
-      id: "5",
+      id: "6",
     },
   ];
   return (
     <Box
       sx={{
-        width: { md: `calc(100% - ${drawerWidth}px)` },
+        width: { lg: `calc(100% - ${drawerWidth}px)` },
         marginLeft: "auto",
         background: "#1f1f1f",
         height: "100%",
@@ -92,7 +98,7 @@ export default function layout({ children }) {
                     className={
                       activeSegment === l.targetSegment ? "activeli" : ""
                     }
-                    key={index}
+                    key={l.id}
                     href={l.path}
                   >
                     {l.label}

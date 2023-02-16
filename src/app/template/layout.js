@@ -9,7 +9,7 @@ const Main = styled.div`
 `;
 const Templatepage = styled.div`
   background: #fff;
-  padding: 40px;
+  padding: 0px;
   position: relative;
 `;
 const Header = styled.header`
@@ -18,8 +18,8 @@ const Header = styled.header`
   justify-content: space-between;
   position: absolute;
   left: 0px;
-  z-index: 2;
-  padding: 0px 40px;
+  z-index: 99;
+  padding: 20px 40px;
   .btnsc {
     display: flex;
     gap: 15px;

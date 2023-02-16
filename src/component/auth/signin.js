@@ -16,8 +16,7 @@ const SignSec = styled.div`
   overflow: hidden;
 `;
 const Btn = styled.button`
-  width: 120px;
-  padding: 10px 0px;
+  padding: 12px 28px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   cursor: pointer;
@@ -25,6 +24,7 @@ const Btn = styled.button`
   border-radius: 5px;
   border: 1px solid #fff;
   transition: all 0.3s;
+  font-size: 1.15em;
   &:first-of-type {
     background: transparent;
     color: #fff;

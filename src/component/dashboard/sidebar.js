@@ -131,7 +131,7 @@ function Sidebar(props) {
       <AppBar
         position="fixed"
         sx={{
-          width: { md: `calc(100% - ${drawerWidth}px)` },
+          width: { lg: `calc(100% - ${drawerWidth}px)` },
           background: "#F6F7F9",
           color: "#000",
           borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
@@ -146,7 +146,7 @@ function Sidebar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { md: "none" } }}
+            sx={{ mr: 2, display: { lg: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -271,7 +271,7 @@ function Sidebar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "block", md: "none" },
+            display: { xs: "block", sm: "block", md: "block", lg: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -286,7 +286,7 @@ function Sidebar(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "none", md: "block" },
+            display: { xs: "none", sm: "none", md: "none", lg: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

@@ -44,7 +44,7 @@ function Nftgeneral(props) {
         margin: "auto",
       }}
     >
-      <Grid container spacing={{ lg: 2, xl: 4 }}>
+      <Grid container spacing={{ md: 2, xl: 4 }}>
         <Grid item xs={4} lg={4.5} xl={4.5}>
           <Form className="forminput">
             <Grid container spacing={2}>
@@ -102,13 +102,16 @@ function Nftgeneral(props) {
                 </FormControl>
               </Grid>
               <Grid xs={12}>
-                <Box sx={{}}>
+                <Box sx={{ margin: "15px 0px" }}>
                   <span>Description </span>
-                  <input
-                    onChange={(e) => setNftDescript(e.target.value)}
-                    type="text"
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
                     placeholder="Ex: DRK is the first of its kind..."
-                  />
+                    onChange={(e) => setNftDescript(e.target.value)}
+                  ></textarea>
                 </Box>
               </Grid>
               <Grid xs={12}>
@@ -228,6 +231,7 @@ function Nftgeneral(props) {
               border: "2px solid #BEBEBE",
               padding: "10px",
               borderRadius: "10px",
+              width: "100%",
               height: {
                 xl: "550px",
                 lg: "400px",

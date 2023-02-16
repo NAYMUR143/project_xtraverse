@@ -41,11 +41,11 @@ function Edithero(props) {
           padding: "50px",
         }}
       >
-        <Grid container spacing={{ lg: 2, xl: 4 }}>
+        <Grid container spacing={{ md: 2, xl: 4 }}>
           <Grid item xs={4} lg={4.5} xl={4.5}>
             <Form className="forminput">
               <Grid container spacing={2}>
-                <h1>Edit Hero</h1>
+                <h1 style={{ marginBottom: "35px" }}>Edit Hero</h1>
                 <Grid xs={12}>
                   <Grid container spacing={{ lg: 2, xl: 4 }}>
                     <Grid xs={4}>
@@ -153,7 +153,7 @@ function Edithero(props) {
                       },
                     }}
                     onClick={() =>
-                      router.push("/dashboard/createproject/domain")
+                      router.push("/dashboard/createproject/connection")
                     }
                   >
                     Continue
@@ -181,7 +181,7 @@ function Edithero(props) {
                 width: "100%",
                 height: {
                   xl: "600px",
-                  lg: "470px",
+                  md: "470px",
                 },
               }}
             >

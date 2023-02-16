@@ -27,7 +27,7 @@ export const Form = styled.form`
     }
     .colorbox {
       width: 80%;
-      margin: auto;
+      margin-left: auto;
       position: relative;
       span {
         width: 100%;

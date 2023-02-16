@@ -34,69 +34,69 @@ const EditHomesc = styled.div`
     }
   }
 `;
-const Wrapper = styled.div`
-  width: 500px;
-  margin: auto;
-`;
-const Step = styled.div``;
+// const Wrapper = styled.div`
+//   width: 500px;
+//   margin: auto;
+// `;
+// const Step = styled.div``;
 
-const Form = styled.form`
-  width: 100%;
-  color: rgba(255, 255, 255, 0.6);
-  label {
-    display: block;
-    padding: 5px 0px;
-  }
-  input {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 1em;
-    color: #fff;
-    outline: none;
-    font-family: "Open Sans", sans-serif;
-  }
-  input[type="submit"] {
-    background-color: #fff;
-    color: #2f2f2f;
-    border: 2px solid #fff;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-      background: transparent;
-      color: #fff;
-    }
-  }
-`;
-const Select_box_container = styled.div`
-  width: 500px;
-  display: flex;
-  flex-direction: column;
+// const Form = styled.form`
+//   width: 100%;
+//   color: rgba(255, 255, 255, 0.6);
+//   label {
+//     display: block;
+//     padding: 5px 0px;
+//   }
+//   input {
+//     background: transparent;
+//     border: 2px solid rgba(255, 255, 255, 0.6);
+//     border-radius: 10px;
+//     width: 100%;
+//     padding: 15px 20px;
+//     font-size: 1em;
+//     color: #fff;
+//     outline: none;
+//     font-family: "Open Sans", sans-serif;
+//   }
+//   input[type="submit"] {
+//     background-color: #fff;
+//     color: #2f2f2f;
+//     border: 2px solid #fff;
+//     font-weight: 700;
+//     cursor: pointer;
+//     transition: all 0.3s;
+//     &:hover {
+//       background: transparent;
+//       color: #fff;
+//     }
+//   }
+// `;
+// const Select_box_container = styled.div`
+//   width: 500px;
+//   display: flex;
+//   flex-direction: column;
 
-  align-items: center;
+//   align-items: center;
 
-  > div {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+//   > div {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
 
-    justify-content: center;
+//     justify-content: center;
 
-    > div {
-      height: 16vh;
-      width: 16vh;
+//     > div {
+//       height: 16vh;
+//       width: 16vh;
 
-      margin: 15px;
+//       margin: 15px;
 
-      border-radius: 10px;
+//       border-radius: 10px;
 
-      border: 2px solid #fff;
-    }
-  }
-`;
+//       border: 2px solid #fff;
+//     }
+//   }
+// `;
 
 function page() {
   const [index, setIndex] = useState(0);

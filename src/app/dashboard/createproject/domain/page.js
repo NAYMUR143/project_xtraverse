@@ -115,7 +115,6 @@ const FormInput = styled.div`
 function page() {
   const [index, setIndex] = useState(0);
   const [step, setStep] = useState("Step 1");
-
   const handleNext = () => {
     setIndex(index === layouts.length - 1 ? 0 : index + 1);
   };
@@ -368,6 +367,8 @@ function AllSet({ handleNext }) {
 }
 // Manage domains
 function ManageDomains() {
+  const router = useRouter();
+
   return (
     <>
       <Form className="DomainTypeForm">
@@ -463,6 +464,26 @@ function ManageDomains() {
             Remove
           </Button>
         </Box>
+        <Button
+          onClick={() => router.push("/template")}
+          sx={{
+            background: "#fff",
+            border: "2px solid #fff",
+            width: "100%",
+            display: "block",
+            padding: "15px ",
+            color: "#000",
+            margin: "15px 0px",
+            color: "#000",
+            borderRadius: "10px",
+            "&:hover": {
+              background: "transparent",
+              color: "#fff",
+            },
+          }}
+        >
+          Complete
+        </Button>
       </Form>
     </>
   );

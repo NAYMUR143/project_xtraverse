@@ -195,7 +195,7 @@ function page() {
   return (
     <Box
       sx={{
-        width: { md: `calc(100% - ${drawerWidth}px)` },
+        width: { lg: `calc(100% - ${drawerWidth}px)` },
         marginLeft: "auto",
         textAlign: "center",
         padding: {
@@ -248,11 +248,10 @@ function page() {
           </InitializeProject>
         </DialogContent>
       </Dialog>
-
       <Grid container spacing={{ xs: 2, md: 0 }}>
         {six_nft_projects.map(
           ({ title, top_left_code, top_right_code, image_src, vid_src }, i) => (
-            <Grid item xl={4} lg={6} sm={6} xs={12}>
+            <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
               <NFT_pro key={i}>
                 <div className="pro_title">{title}</div>
                 <div className="pro_codes">
