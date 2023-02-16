@@ -39,7 +39,6 @@ const Header = styled.header`
 `;
 const Dashboardsc = styled.div`
   width: 100%;
-  text-align: center;
   position: relative;
 `;
 

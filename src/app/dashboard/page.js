@@ -197,7 +197,7 @@ function page() {
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         marginLeft: "auto",
-
+        textAlign: "center",
         padding: {
           xl: "0px 100px",
         },

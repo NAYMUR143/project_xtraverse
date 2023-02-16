@@ -14,7 +14,7 @@ const Ul = styled.ul`
   display: flex;
   list-style: none;
   justify-content: space-between;
-  margin: 10px auto 25px;
+  margin: 100px auto 25px;
   li {
     display: flex;
     align-items: center;
@@ -73,7 +73,7 @@ export default function layout({ children }) {
         width: { md: `calc(100% - ${drawerWidth}px)` },
         marginLeft: "auto",
         background: "#1f1f1f",
-        height: "92vh",
+        height: "100%",
         overflow: "hidden",
         display: "grid",
         gridTemplateColumns: "100%",

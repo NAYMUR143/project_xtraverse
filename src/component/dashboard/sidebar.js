@@ -55,7 +55,7 @@ const SearchBox = styled.div`
     border: 0px;
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
-    background: #f2f4f5;
+    background: #d7dcdf;
   }
   svg {
     position: absolute;

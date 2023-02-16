@@ -7,59 +7,38 @@ import { BsPlusLg } from "react-icons/bs";
 import Image from "next/image";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-
-const EditHomesc = styled.div``;
+import Edithero from "@/component/dashboard/edithomepage/edithero";
+import Editsales from "@/component/dashboard/edithomepage/editsales";
+import Editfeature from "@/component/dashboard/edithomepage/editfeature";
+import Editwaitlist from "@/component/dashboard/edithomepage/editwailist/editwailist";
+import EditFAQ from "@/component/dashboard/edithomepage/editfaq";
+import Editfooter from "@/component/dashboard/edithomepage/editfooter";
+import demoimg from "../../../../component/images/blacklogo.svg";
+const EditHomesc = styled.div`
+  .activeDot {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 30px 0px;
+    li {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      list-style: none;
+      background: transparent;
+      border: 2px solid #fff;
+      transition: all 0.3s;
+      &.active {
+        background: #fff;
+      }
+    }
+  }
+`;
 const Wrapper = styled.div`
   width: 500px;
   margin: auto;
 `;
 const Step = styled.div``;
-const Uploadsc = styled.div`
-  width: 100%;
-  height: 200px;
-  background: transparent;
-  border: 1px solid #fff;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  margin: 10px 0px 0px;
-  .uparrow {
-    font-size: 3em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    justify-content: center;
-    align-items: center;
-    span {
-      font-size: 0.4em;
-      display: block;
-      color: rgba(255, 255, 255, 0.6);
-    }
-  }
-  .upldImg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-  input {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-  }
-`;
 
 const Form = styled.form`
   width: 100%;
@@ -121,8 +100,24 @@ const Select_box_container = styled.div`
 
 function page() {
   const [index, setIndex] = useState(0);
-  const [step, setStep] = useState("Step 1");
 
+  //! Edit hero
+  // blur color
+  const [blur1, setBlur1] = useState("#1EA573");
+  const [blur2, setBlur2] = useState("#97C35E");
+  const [blur3, setBlur3] = useState("#20BC83");
+  const [homeLogo, setHomeLogo] = useState(demoimg);
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setHomeLogo(imageFile);
+    const reader = new FileReader();
+    reader.onload = () => setHomeLogo(reader.result);
+    reader.readAsDataURL(imageFile);
+  };
+  const [editHeroName, setEditHeroName] = useState("Robo Gremlins");
+  const [editHeroScript, setEditHeroScript] = useState(
+    "Our Fancy Shamncy NFT Project is the king of all fancy shamncy NFT projects. And we are sworn enemies of Gary v."
+  );
   const handleNext = () => {
     setIndex(index === layouts.length - 1 ? 0 : index + 1);
   };
@@ -130,540 +125,41 @@ function page() {
     setIndex(index === 0 ? layouts.length - 1 : index - 1);
   };
   const layouts = [
-    <UpdateBlurs handleNext={handleNext} />,
-    <UploadLogo handleNext={handleNext} />,
-    <SetHeadingSummary handleNext={handleNext} />,
-    <UpdateHeroImg handleNext={handleNext} />,
-    <SelectNfts handleNext={handleNext} />,
-    <FaqSec />,
+    <Edithero
+      handleNext={handleNext}
+      homeLogo={homeLogo}
+      editHeroName={editHeroName}
+      setEditHeroName={setEditHeroName}
+      editHeroScript={editHeroScript}
+      setEditHeroScript={setEditHeroScript}
+      handleImageChange={handleImageChange}
+      blur1={blur1}
+      blur2={blur2}
+      blur3={blur3}
+      setBlur1={setBlur1}
+      setBlur2={setBlur2}
+      setBlur3={setBlur3}
+    />,
+    <Editsales handleNext={handleNext} />,
+    <Editfeature handleNext={handleNext} />,
+    <Editwaitlist handleNext={handleNext} />,
+    <EditFAQ handleNext={handleNext} />,
+    <Editfooter handleNext={handleNext} />,
   ];
-  return <EditHomesc>{layouts[index]}</EditHomesc>;
-}
-
-// update blurs
-function UpdateBlurs({ handleNext }) {
   return (
-    <>
-      <Wrapper>
-        <Step>
-          <span>Step 5</span>
-          <h1>Edit Homepage</h1>
-        </Step>
-        <Form>
-          <Box
-            sx={{
-              margin: "25px 0px",
-              display: "grid",
-              gridTemplateColumns: "repeat(2,1fr)",
-              gap: "25px",
-            }}
-          >
-            <Box>
-              <label htmlFor="" style={{ color: "#fff" }}>
-                Blur 1
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="
-
-            #20BC83
-              "
-              />
-            </Box>
-            <Box>
-              <label htmlFor="" style={{ color: "#fff" }}>
-                Blur 2
-              </label>
-
-              <input
-                type="text"
-                required
-                placeholder="
-            #97C35E
-              "
-              />
-            </Box>
-            <Box>
-              <label htmlFor="" style={{ color: "#fff" }}>
-                Blur 3
-              </label>
-
-              <input
-                type="text"
-                required
-                placeholder="
-            #1EA573
-              "
-              />
-            </Box>
-          </Box>
-          <Button
-            sx={{
-              background: "#a3f6ab",
-              border: "none",
-              width: "100%",
-              display: "block",
-              padding: "15px ",
-              color: "#000",
-              margin: "15px 0px",
-              "&:hover": {
-                background: "#fff",
-              },
-            }}
-          >
-            Update blurs
-          </Button>
-          <Button
-            sx={{
-              background: "transparent",
-              border: "2px solid #fff",
-              width: "100%",
-              display: "block",
-              padding: "10px ",
-              color: "#000",
-              margin: "15px 0px",
-              color: "#fff",
-              "&:hover": {
-                background: "#fff",
-                color: "#000",
-              },
-            }}
-            onClick={handleNext}
-          >
-            Continue
-          </Button>
-        </Form>
-      </Wrapper>
-    </>
+    <EditHomesc>
+      {layouts[index]}
+      {/* <ul className="activeDot">
+        <li className={index === 0 ? "active" : ""}></li>
+        <li className={index === 1 ? "active" : ""}></li>
+        <li className={index === 2 ? "active" : ""}></li>
+        <li className={index === 3 ? "active" : ""}></li>
+        <li className={index === 4 ? "active" : ""}></li>
+        <li className={index === 5 ? "active" : ""}></li>
+        <li className={index === 6 ? "active" : ""}></li>
+      </ul> */}
+    </EditHomesc>
   );
 }
 
-// upload logo
-function UploadLogo({ handleNext }) {
-  const [selectedImage, setSelectedImage] = useState();
-
-  const imageChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
-  return (
-    <>
-      <Wrapper>
-        <Step>
-          <span>Step 5</span>
-          <h1>Edit Homepage</h1>
-        </Step>
-        <Uploadsc>
-          <div className="uparrow">
-            <IoIosAddCircle />
-            <span>Upload logo</span>
-          </div>
-          <input
-            type="file"
-            id="myFile"
-            name="filename"
-            required
-            onChange={imageChange}
-          />
-          {selectedImage && (
-            <div className="upldImg">
-              <Image
-                src={URL.createObjectURL(selectedImage)}
-                width={100}
-                height={300}
-                alt="upload logo"
-              />
-              {/* <button onClick={removeSelectedImage}>
-                      <IoIosRemoveCircle />
-                    </button> */}
-            </div>
-          )}
-        </Uploadsc>
-        <Button
-          sx={{
-            background: "#f4b8ec",
-            border: "none",
-            width: "100%",
-            display: "block",
-            padding: "15px ",
-            color: "#000",
-            margin: "15px 0px",
-            "&:hover": {
-              background: "#fff",
-            },
-          }}
-        >
-          Update logo
-        </Button>
-        <Button
-          onClick={handleNext}
-          sx={{
-            background: "transparent",
-            border: "2px solid #fff",
-            width: "100%",
-            display: "block",
-            padding: "12px ",
-            color: "#000",
-            margin: "15px 0px",
-            color: "#fff",
-            "&:hover": {
-              background: "#fff",
-              color: "#000",
-            },
-          }}
-        >
-          Continue
-        </Button>
-      </Wrapper>
-    </>
-  );
-}
-// update SetHeadingSummary
-function SetHeadingSummary({ handleNext }) {
-  return (
-    <>
-      <Wrapper>
-        <Step>
-          <span>Step 5</span>
-          <h1>Edit Homepage</h1>
-        </Step>
-        <Form>
-          <Box
-            sx={{
-              margin: "25px 0px",
-            }}
-          >
-            <label htmlFor="heading">Heading</label>
-            <input
-              type="text"
-              id="heading"
-              required
-              placeholder="Robo Gremlins"
-            />
-          </Box>
-          <Box
-            sx={{
-              margin: "25px 0px",
-            }}
-          >
-            <label htmlFor="Summary">Summary</label>
-            <input
-              type="text"
-              id="Summary"
-              required
-              placeholder="
-              A
-              Gary
-              Vaynerchuk
-              hating
-              NFT
-              Project
-              
-              "
-            />
-          </Box>
-          <Button
-            sx={{
-              background: "#72f5fd",
-              border: "none",
-              width: "100%",
-              display: "block",
-              padding: "15px ",
-              color: "#000",
-              margin: "15px 0px",
-              "&:hover": {
-                background: "#fff",
-              },
-            }}
-          >
-            Update
-          </Button>
-          <Button
-            onClick={handleNext}
-            sx={{
-              background: "transparent",
-              border: "2px solid #fff",
-              width: "100%",
-              display: "block",
-              padding: "10px ",
-              color: "#000",
-              margin: "15px 0px",
-              color: "#fff",
-              "&:hover": {
-                background: "#fff",
-                color: "#000",
-              },
-            }}
-          >
-            Continue
-          </Button>
-        </Form>
-      </Wrapper>
-    </>
-  );
-}
-// update heor img
-function UpdateHeroImg({ handleNext }) {
-  return (
-    <>
-      <Wrapper>
-        <Step>
-          <span>Step 5</span>
-          <h1>Edit Homepage</h1>
-        </Step>
-        <Form>
-          <Box
-            sx={{
-              margin: "25px 0px",
-              display: "flex",
-              gap: "15px",
-            }}
-          >
-            <input
-              type="number"
-              required
-              placeholder="
-            1
-              "
-            />
-            <input
-              type="number"
-              required
-              placeholder="
-            1
-              "
-            />
-            <input
-              type="number"
-              required
-              placeholder="
-            1
-              "
-            />
-          </Box>
-          <Button
-            sx={{
-              background: "#fdf150",
-              border: "none",
-              width: "100%",
-              display: "block",
-              padding: "10px ",
-              color: "#000",
-              margin: "15px 0px",
-              "&:hover": {
-                background: "#fff",
-              },
-            }}
-          >
-            Update hero Images
-          </Button>
-          <Button
-            sx={{
-              background: "transparent",
-              border: "2px solid #fff",
-              width: "100%",
-              display: "block",
-              padding: "10px ",
-              color: "#000",
-              margin: "15px 0px",
-              color: "#fff",
-              "&:hover": {
-                background: "#fff",
-                color: "#000",
-              },
-            }}
-            onClick={handleNext}
-          >
-            Continue
-          </Button>
-        </Form>
-      </Wrapper>
-    </>
-  );
-}
-//select nfts
-function SelectNfts({ handleNext }) {
-  return (
-    <>
-      <Wrapper>
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <span>Select up to 3 NFTs to show case</span>
-          <span>2/3 selected</span>
-        </Box>
-
-        <Select_box_container>
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </Select_box_container>
-
-        <Box
-          onClick={handleNext}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            fontSize: "2.5em",
-            cursor: "pointer",
-          }}
-        >
-          <IoIosArrowDropright />
-        </Box>
-      </Wrapper>
-    </>
-  );
-}
-// frequently ask question
-function FaqSec() {
-  const router = useRouter();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    router.push("/template");
-  };
-  return (
-    <>
-      <Wrapper>
-        <Box
-          sx={{
-            textAlign: "center",
-          }}
-        >
-          <Step>
-            <span>Step 6</span>
-            <h1>Edit Homepage</h1>
-          </Step>
-          <Form onSubmit={handleSubmit}>
-            <Box
-              sx={{
-                margin: "25px 0px",
-              }}
-            >
-              <label
-                htmlFor="heading"
-                style={{ color: "#fff", textAlign: "left" }}
-              >
-                Question
-              </label>
-              <input
-                type="text"
-                id="heading"
-                required
-                placeholder="What will impress Irene?"
-              />
-            </Box>
-            <Box
-              sx={{
-                margin: "25px 0px",
-              }}
-            >
-              <label
-                htmlFor="Summary"
-                style={{ color: "#fff", textAlign: "left" }}
-              >
-                Answer
-              </label>
-              <input
-                type="text"
-                id="Summary"
-                required
-                placeholder="
-              A
-              Gary
-              Vaynerchuk
-              hating
-              NFT
-              Project
-              
-              "
-              />
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                gap: "15px ",
-              }}
-            >
-              <Button
-                sx={{
-                  background: "transparent",
-                  border: "2px solid #fff",
-                  width: "100%",
-                  display: "block",
-                  padding: "10px ",
-                  color: "#000",
-                  margin: "15px 0px",
-                  color: "#fff",
-                  "&:hover": {
-                    background: "#fff",
-                    color: "#000",
-                  },
-                }}
-              >
-                Edit FAQs
-              </Button>
-              <Button
-                sx={{
-                  background: "#f4b8ec",
-                  border: "none",
-                  width: "100%",
-                  display: "block",
-                  padding: "15px ",
-                  color: "#000",
-                  margin: "15px 0px",
-                  "&:hover": {
-                    background: "#fff",
-                  },
-                }}
-              >
-                Add FAQs
-              </Button>
-            </Box>
-            <Button
-              sx={{
-                background: "#fff",
-                border: "none",
-                width: "100%",
-                display: "block",
-                padding: "12px ",
-                color: "#000",
-                margin: "15px auto",
-                width: "50%",
-                border: "2px solid #fff",
-                "&:hover": {
-                  background: "transparent",
-                  border: "2px solid #fff",
-                  color: "#fff",
-                },
-              }}
-              type="submit"
-            >
-              Update
-            </Button>
-          </Form>
-        </Box>
-      </Wrapper>
-    </>
-  );
-}
 export default page;
